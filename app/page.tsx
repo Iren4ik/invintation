@@ -1,5 +1,7 @@
 // import Image from "next/image";
 
+import Form from "@/components/Form";
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans ">
@@ -9,6 +11,7 @@ export default function Home() {
             Приглашение на свадьбу
           </h1>
           <p>Приглашаем отметить этот день вместе с нами!</p>
+          <Form />
         </div>
       </main>
     </div>
