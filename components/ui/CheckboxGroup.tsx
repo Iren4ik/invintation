@@ -21,7 +21,7 @@ export default function CheckboxGroup({
     <div className="flex flex-col gap-3">
       <p className="text-sm font-medium text-zinc-800">
         {title}
-        {required && <span className="ml-1 text-red-500">*</span>}
+        {required && <span className="ml-1">*</span>}
       </p>
 
       <div className="flex flex-col gap-2 ">

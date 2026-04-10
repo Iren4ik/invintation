@@ -10,16 +10,17 @@ export async function sendDataToTelegram(formData: FormDataForTelegram) {
   const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
+    // Безопасно получаем массивы
+  const events = Array.isArray(formData.events) ? formData.events : [];
+  const drinks = Array.isArray(formData.drinks) ? formData.drinks : [];
+
   // Формируем сообщение в HTML формате
   const message = `
   🎉 <b>Новая анкета с мероприятия</b>
 
     <b>Имя:</b> ${formData.name}
-
-    <b>Части праздника:</b> ${formData.events.join(', ') || 'Не выбрано'}
-
-    <b>Предпочитаемые напитки:</b> ${formData.drinks.join(', ') || 'Не выбрано'}
-
+    <b>Части праздника:</b> ${events.length > 0 ? events.join(', ') : 'Не выбрано'}
+    <b>Предпочитаемые напитки:</b> ${drinks.length > 0 ? drinks.join(', ') : 'Не выбрано'}
     <b>Аллергии/ограничения:</b> ${formData.allergies || 'Не указано'}
 
     <b>Время отправки:</b> ${new Date().toLocaleString('ru-RU')}
