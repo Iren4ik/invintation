@@ -15,12 +15,12 @@ export default function TextAreaField({
   name,
   register,
   placeholder,
-  rows = 4,
+  rows = 3,
 }: TextAreaFieldProps) {
 
   return (
-    <div className="flex flex-col gap-2">
-      <label className="text-sm font-medium text-zinc-800">
+    <div className="flex flex-col gap-4">
+      <label className="text-[16px] font-semibold text-left leading-[1.2]">
         {label}
       </label>
 
@@ -29,10 +29,11 @@ export default function TextAreaField({
         placeholder={placeholder}
         rows={rows}
         className="
-          w-full resize-none rounded-xl border border-zinc-300
-          px-4 py-3 text-sm text-zinc-900
+          rounded-[12px] w-full resize-none border border-zinc-300 
+          px-3.5 py-3 text-sm text-[14px]
           outline-none transition
-          focus:border-zinc-900 focus:ring-4 focus:ring-zinc-200
+          placeholder:text-zinc-400
+          focus:border-black focus:ring-4 focus:ring-zinc-100 
         "
       />
     </div>

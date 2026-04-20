@@ -3,6 +3,7 @@ type FormDataForTelegram = {
   events: string[];
   drinks: string[];
   allergies?: string;
+  kids?: string;
 };
 
 export async function sendDataToTelegram(formData: FormDataForTelegram) {
@@ -10,7 +11,6 @@ export async function sendDataToTelegram(formData: FormDataForTelegram) {
   const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-    // Безопасно получаем массивы
   const events = Array.isArray(formData.events) ? formData.events : [];
   const drinks = Array.isArray(formData.drinks) ? formData.drinks : [];
 
@@ -22,6 +22,7 @@ export async function sendDataToTelegram(formData: FormDataForTelegram) {
     <b>Части праздника:</b> ${events.length > 0 ? events.join(', ') : 'Не выбрано'}
     <b>Предпочитаемые напитки:</b> ${drinks.length > 0 ? drinks.join(', ') : 'Не выбрано'}
     <b>Аллергии/ограничения:</b> ${formData.allergies || 'Не указано'}
+    <b>Аллергии/ограничения:</b> ${formData.kids || 'Не указано'}
 
     <b>Время отправки:</b> ${new Date().toLocaleString('ru-RU')}
   `;
