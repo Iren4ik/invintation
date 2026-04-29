@@ -3,7 +3,7 @@ type FormDataForTelegram = {
   events: string[];
   drinks: string[];
   allergies?: string;
-  kids?: string;
+  children: { name: string }[];
 };
 
 export async function sendDataToTelegram(formData: FormDataForTelegram) {
@@ -13,18 +13,25 @@ export async function sendDataToTelegram(formData: FormDataForTelegram) {
 
   const events = Array.isArray(formData.events) ? formData.events : [];
   const drinks = Array.isArray(formData.drinks) ? formData.drinks : [];
+  const children = Array.isArray(formData.children) ? formData.children : [];
+
+  // Формируем список детей
+  const childrenList = children.length > 0 
+    ? children.map((child, index) => `${index + 1}. ${child.name}`).join('\n')
+    : 'Не указано';
 
   // Формируем сообщение в HTML формате
   const message = `
-  🎉 <b>Новая анкета с мероприятия</b>
+🎉 <b>Новая анкета с мероприятия</b>
 
-    <b>Имя:</b> ${formData.name}
-    <b>Части праздника:</b> ${events.length > 0 ? events.join(', ') : 'Не выбрано'}
-    <b>Предпочитаемые напитки:</b> ${drinks.length > 0 ? drinks.join(', ') : 'Не выбрано'}
-    <b>Аллергии/ограничения:</b> ${formData.allergies || 'Не указано'}
-    <b>Аллергии/ограничения:</b> ${formData.kids || 'Не указано'}
+<b>Имя:</b> ${formData.name}
+<b>Части праздника:</b> ${events.length > 0 ? events.join(', ') : 'Не выбрано'}
+<b>Предпочитаемые напитки:</b> ${drinks.length > 0 ? drinks.join(', ') : 'Не выбрано'}
+<b>Дети:</b> 
+${childrenList}
+<b>Аллергии/ограничения:</b> ${formData.allergies || 'Не указано'}
 
-    <b>Время отправки:</b> ${new Date().toLocaleString('ru-RU')}
+<b>Время отправки:</b> ${new Date().toLocaleString('ru-RU')}
   `;
 
   const params = {

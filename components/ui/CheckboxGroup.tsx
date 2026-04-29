@@ -18,8 +18,8 @@ export default function CheckboxGroup({
   required = false,
 }: CheckboxGroupProps) {
   return (
-    <div className="flex flex-col gap-3">
-      <p className="text-[16px] font-semibold text-left leading-[1.2]">
+    <div className="flex flex-col gap-3 lg:gap-4.5">
+      <p className="text-[16px] font-semibold text-left leading-[1.2] lg:text-[20px]">
         {title}
         {required && <span className="ml-1">*</span>}
       </p>
@@ -28,7 +28,7 @@ export default function CheckboxGroup({
         {options.map((option) => (
           <label
             key={option}
-            className="flex cursor-pointer items-center gap-3 rounded-[8px] lg:rounded-[12px] py-2 lg:p-2 transition
+            className="flex cursor-pointer items-center gap-3 lg:gap-4 rounded-[8px] lg:rounded-[12px] py-2 lg:p-2 transition
             lg:hover:bg-zinc-50"
           >
             <div className="relative flex items-center justify-center">
@@ -55,7 +55,7 @@ export default function CheckboxGroup({
                 </svg>
               </div>
             </div>
-            <span className="text-[14px]">{option}</span>
+            <span className="text-[14px] lg:text-[18px]">{option}</span>
           </label>
         ))}
       </div>

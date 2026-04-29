@@ -63,6 +63,9 @@ const involve = localFont({
 export const metadata: Metadata = {
   title: "Приглашение на свадьбу",
   description: "Приглашаем вас на наше свадьбу 09.07.2026",
+  icons: {
+    icon: "/rings.png", 
+  },
 };
 
 export default function RootLayout({

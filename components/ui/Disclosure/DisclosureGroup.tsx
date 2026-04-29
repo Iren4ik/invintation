@@ -10,7 +10,7 @@ export interface DisclosureGroupProps extends AriaDisclosureGroupProps {
 
 export function DisclosureGroup({ children, ...props }: DisclosureGroupProps) {
   return (
-    <AriaDisclosureGroup {...props} className="flex flex-col gap-3">
+    <AriaDisclosureGroup {...props} className="flex flex-col gap-3 lg:gap-4">
       {children}
     </AriaDisclosureGroup>
   );

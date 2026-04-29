@@ -5,6 +5,7 @@ type TextFieldProps = {
   placeholder: string;
   registration: UseFormRegisterReturn;
   error?: FieldError;
+  required?: boolean; // Добавляем пропс для указания обязательности
 };
 
 export default function TextField({
@@ -12,18 +13,19 @@ export default function TextField({
   placeholder,
   registration,
   error,
+  required = false, // По умолчанию поле необязательное
 }: TextFieldProps) {
   return (
-    <div className="flex flex-col gap-4">
-      <label className="text-[16px] font-semibold text-left leading-[1.2]">
+    <div className="flex flex-col gap-4 lg:gap-5">
+      <label className="text-[16px] font-semibold text-left leading-[1.2] lg:text-[20px]">
         {label}
-        <span className="ml-1">*</span>
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
 
       <input
         {...registration}
         placeholder={placeholder}
-        className={`rounded-[8px] text-[14px] border px-3.5 py-3 outline-none transition-all duration-200
+        className={`rounded-[8px] text-[14px] lg:text-[18px] border px-3.5 py-3 lg:py-3.5 outline-none transition-all duration-200
                   placeholder:text-zinc-400
                     lg:rounded-[12px]
           ${
