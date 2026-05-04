@@ -6,7 +6,7 @@ export default function Rules() {
       <DisclosureHeader>Правила поведения на теплоходе</DisclosureHeader>
       <DisclosurePanel>
         <h3 className="font-semibold mb-3 mt-4">Общие правила посадки и перемещения</h3>
-        <ol className="list-decimal !pl- space-y-2">
+        <ol className="list-decimal !pl-5 space-y-2">
           <li>Вход и выход с судна разрешены только после полной швартовки и команды капитана.</li>
           <li>Вход и выход пассажиров разрешается только по надежно установленным и испытанным трапам судна.</li>
           <li>Будьте внимательны при передвижении по трапам — держитесь за поручни.</li>
