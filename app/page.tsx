@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import PicturesGrid from "@/components/ui/PicturesGrid";
+import Main from "@/components/Main";
 import Schedule from "@/components/Schedule";
 import Calendar from "@/components/Calendar";
 import Form from "@/components/Form";
 import Faq from "@/components/Faq";
 import Rules from "@/components/Rules";
-import ContactCard from "@/components/ContactCard";
+import Footer from "@/components/Footer";
+// import ContactCard from "@/components/ui/ContactCard";
 import { cn } from "@/lib/utils";
 import {
   firstGalleryBlocks,
@@ -44,7 +46,7 @@ function SectionTitle({
   return (
     <h2
       className={cn(
-        "text-[28px] uppercase leading-[28px] mb-[45px] lg:text-[36px] lg:leading-[1.2] lg:mb-[60px]",
+        "text-[26px] uppercase leading-[1.2] mb-[50px] lg:text-[36px] lg:leading-[1.2] lg:mb-[60px]",
         className
       )}
     >
@@ -65,7 +67,7 @@ function GallerySection({
   return (
     <section
       className={cn(
-        "w-screen mt-[50px] mb-[30px]",
+        "w-screen mt-[70px] mb-[50px]",
         className
       )}
     >
@@ -79,9 +81,14 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center">
       <main className="flex flex-1 w-full max-w-[830px] flex-col items-center justify-between">
         <div className="w-full flex flex-col items-center">
+
+          <Section className="w-screen pt-0 px-0">
+            <Main/>
+          </Section>
+
           <Section>
-            <p className="text-right uppercase font-semibold text-[24px] leading-[26px]
-                lg:text-[28px] lg:leading-[1.2]">
+            <p className=" text-right uppercase font-semibold text-[24px] leading-[26px]
+                lg:text-[32px] lg:leading-[1.2]">
               В нашей истории<br/>
               <span className="italic">Новая глава</span><br/>
               – мы становимся<br/>
@@ -108,7 +115,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="absolute w-[173px] h-[175px] z-0 -top-[15px] translate-x-1/2 left-[80px] lg:left-[200px] heart-beat">
+            <div className="absolute w-[173px] h-[175px] z-0 -top-[10px] translate-x-1/2 left-[80px] lg:left-[200px] heart-beat">
               <Image
                 alt="Сердечко"
                 src="/images/heart.svg"
@@ -123,24 +130,20 @@ export default function Home() {
 
           <Section>
             <div className="z-20 relative">
-              <div className="flex items-center gap-4 mb-[45px] lg:mb-[60px]">
+              <div className="flex items-end justify-between gap-4 mb-[45px] lg:mb-[60px]">
                 <div className="flex-shrink-0 pr-1 lg:pr-6">
-                  <h2 className="font-display text-[28px] uppercase leading-[1.2] lg:text-[36px] lg:hidden">
-                    Дата
-                  </h2>
 
-                  <h2 className="font-display text-[28px] uppercase leading-[1.2] lg:text-[36px] hidden lg:block">
-                    Сохраните <br />
-                    дату
+                  <h2 className="font-display uppercase leading-[1.2] lg:text-[36px] lg:inline hidden">
+                    Событие пройдет <br/>в <span className="bg-beige px-2 py-1">июле</span>
+                  </h2>
+                  <h2 className="font-display text-[28px] uppercase leading-[1.2] lg:hidden flex">
+                    Июль
                   </h2>
                 </div>
 
-                <div className="flex-1 h-[2px] bg-black"></div>
-
                 <div className="flex-shrink-0 pl-1 lg:pl-6">
-                  <span className="font-display text-right text-[28px] lg:text-[36px] uppercase leading-[1.2] whitespace-nowrap">
-                    09.07
-                    <span className="hidden lg:inline">.2026</span>
+                  <span className="font-display text-right text-[28px] lg:text-[32px] uppercase leading-[1.2] whitespace-nowrap">
+                    <span className="lg:inline hidden">/</span>2026
                   </span>
                 </div>
               </div>
@@ -218,31 +221,35 @@ export default function Home() {
             <Rules />
           </Section>
 
-          <Section className="w-screen !max-w-none bg-dark-gray-sec text-white rounded-tl-[20px] rounded-tr-[20px] lg:rounded-tl-[50px] lg:rounded-tr-[50px] 
-            mt-[80px] py-[70px] lg:pt-[90px] lg:pb-[100px] px-0">
-  
-            {/* контейнер контента как у остальных секций */}
-            <div className="w-full max-w-[830px] mx-auto px-[30px]">
+          {/* <Section
+            className="
+              relative w-screen !max-w-none
+              text-white
+              mt-[80px] pb-[90px] pt-[110px] lg:pt-[140px] lg:pb-[100px]
+              px-0
+            "
+          >
+            <div
+              className="
+                absolute inset-0
+                [clip-path:ellipse(140%_100%_at_50%_100%)]
+                lg:[clip-path:ellipse(90%_100%_at_50%_100%)]
+                bg-dark-gray-sec
+              "
+            />
+            <div className="relative z-10 w-full max-w-[830px] mx-auto px-[30px]">
               
               <SectionTitle>
                 Контакты
               </SectionTitle>
 
               <p className="text-[16px] lg:text-[20px] leading-[1.5] mb-[40px] lg:mb-[60px] max-w-[700px]">
-                Если у вас появятся вопросы по мероприятию, размещению,
+                Если у вас появились вопросы по мероприятию, размещению,
                 таймингу или организационным моментам — пожалуйста,
                 свяжитесь с нами удобным способом.
               </p>
 
-              <div
-                className="
-                  grid
-                  grid-cols-1
-                  gap-[30px]
-                  lg:grid-cols-3
-                  lg:gap-[40px]
-                "
-              >
+              <div className="grid grid-cols-1 gap-[30px] lg:grid-cols-3 lg:gap-[40px]">
                 <ContactCard
                   name="Ирена"
                   phone="+7 (981) 783-82-53"
@@ -257,16 +264,14 @@ export default function Home() {
                   vk="https://vk.com/nikon_b1"
                 />
 
-                <ContactCard
-                  name="Организатор"
-                  role="По организационным вопросам на теплоходе"
-                  // phone="+7 (999) 333-33-33"
-                />
               </div>
 
             </div>
-          </Section>
+          </Section> */}
 
+          <Section className="w-screen py-0 px-0 mt-[50px] lg:mt-[80px]">
+            <Footer/>
+          </Section>
         </div>
       </main>
     </div>

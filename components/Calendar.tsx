@@ -7,7 +7,7 @@ export default function Calendar() {
   const targetDay = 9;
   
   const firstDayOfMonth = new Date(year, month, 1);
-  let startWeekday = firstDayOfMonth.getDay();
+  const startWeekday = firstDayOfMonth.getDay();
   // Преобразуем в формат "понедельник — первый день недели"
   const mondayBasedStart = startWeekday === 0 ? 6 : startWeekday - 1;
   
@@ -44,26 +44,20 @@ export default function Calendar() {
   // Определяем цвет текста для дня недели
   const getWeekdayColor = (idx) => {
     // idx: 0=Пн, 1=Вт, 2=Ср, 3=Чт, 4=Пт, 5=Сб, 6=Вс
-    return idx === 5 || idx === 6 ? 'text-[#bbb]' : 'text-black';
+    return idx === 5 || idx === 6 ? 'text-zinc-400' : 'text-black';
   };
   
   return (
-    <div className="flex gap-3 w-full items-center">
-      {/* Повёрнутый месяц */}
-      {/* <div className="rotate-[-90deg] whitespace-nowrap flex-shrink-0 max-w-[40px]">
-        <span className="text-[18px] uppercase tracking-wide text-[#555]">
-          Июль 2026
-        </span>
-      </div> */}
+    <div className="flex gap-3 w-full items-center text-[14px] lg:text-[18px]">
       
       {/* Календарь — на всю оставшуюся ширину */}
       <div className="flex-1">
         {/* Дни недели */}
-        <div className="grid grid-cols-7 gap-1 mb-2">
+        <div className="grid grid-cols-7 gap-1 mb-4">
           {weekdays.map((day, idx) => (
             <div
               key={idx}
-              className={`text-center text-[11px] font-medium uppercase tracking-wide py-1 ${getWeekdayColor(idx)}`}
+              className={`text-center font-bold uppercase tracking-wide py-1 ${getWeekdayColor(idx)}`}
             >
               {day}
             </div>
@@ -86,21 +80,21 @@ export default function Calendar() {
                 <div
                   key={`day-${day}`}
                   className={`
-                    relative flex items-center justify-center text-[14px] py-2 rounded-full
+                    relative flex items-center justify-center py-2 rounded-full
                     ${isTarget 
-                      ? 'text-black font-medium' 
+                      ? 'text-black font-bold lg:text-[26px]' 
                       : weekend 
-                        ? 'text-[#bbb]' 
+                        ? 'text-zinc-400' 
                         : 'text-black'
                     }
                   `}
                 >
                   {/* Фон для таргетной даты с сердечком - с opacity */}
                   {isTarget && (
-                    <div className="absolute inset-0 w-full h-full">
+                    <div className="absolute inset-0 w-full h-full star-rotate">
                       <Image
                         alt="Сердечко"
-                        src="/images/heart.svg"
+                        src="/images/star.svg"
                         fill
                         style={{ objectFit: 'contain' }}
                         loading="eager"
