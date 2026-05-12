@@ -70,7 +70,7 @@ export default function Calendar() {
                   className={`
                     relative flex items-center justify-center py-2 rounded-full
                     ${isTarget 
-                      ? 'text-black font-bold lg:text-[26px]' 
+                      ? 'text-black font-bold text-[16px] lg:text-[26px]' 
                       : weekend 
                         ? 'text-zinc-400' 
                         : 'text-black'
