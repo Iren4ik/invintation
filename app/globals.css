@@ -260,7 +260,7 @@ a:hover {
 }
 
 .star-rotate {
-  animation: star-rotate 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: star-rotate 8s ease-in-out infinite;
   transform-origin: center;
   display: inline-block;
 }

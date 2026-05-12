@@ -92,7 +92,7 @@ export default function Main() {
 
   return (
     <div ref={sectionRef} className="relative w-full overflow-hidden">
-      <div className="relative w-full h-[calc(100dvh-40px)] aspect-[16/10] min-h-[650px] max-h-[750px] lg:max-h-[850px]">
+      <div className="relative w-full h-[calc(100svh-40px)] aspect-[16/10] min-h-[650px] max-h-[750px] lg:max-h-[850px]">
 
         {/* MOBILE background */}
         <div
