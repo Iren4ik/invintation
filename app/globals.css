@@ -232,3 +232,35 @@ a:hover {
   transform-origin: center center;
   will-change: transform;
 }
+
+@keyframes arrowFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(14px);
+  }
+}
+
+.arrow-float {
+  display: inline-block;
+  transform: translateY(0);
+  animation: arrowFloat 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes star-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.star-rotate {
+  animation: star-rotate 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-origin: center;
+  display: inline-block;
+}

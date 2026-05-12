@@ -185,7 +185,7 @@ export default function Form() {
               type="button"
               onClick={addChild}
               className="w-full rounded-[50px] cursor-pointer bg-zinc-100 px-5 py-3 lg:py-3
-              transition-all duration-200 text-[13px] lg:text-[16px] hover:scale-105 lg:max-w-[50%]
+              transition-all duration-200 text-[13px] lg:text-[16px] hover:scale-105 
               "
             >
               + Добавить ребенка
@@ -201,7 +201,7 @@ export default function Form() {
           disabled={isSubmitting || !name || !events.length}
           className="w-full  mt-[10px] rounded-[50px] cursor-pointer bg-dark-gray-sec px-5 py-3 lg:py-3.5 
           text-white transition-all duration-200
-          hover:scale-105 lg:max-w-[50%]
+          hover:scale-105 
           disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Отправка...' : 'Отправить'}

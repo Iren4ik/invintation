@@ -25,10 +25,13 @@ export async function sendDataToTelegram(formData: FormDataForTelegram) {
 🎉 <b>Новая анкета с мероприятия</b>
 
 <b>Имя:</b> ${formData.name}
+
 <b>Части праздника:</b> ${events.length > 0 ? events.join(', ') : 'Не выбрано'}
+
 <b>Предпочитаемые напитки:</b> ${drinks.length > 0 ? drinks.join(', ') : 'Не выбрано'}
-<b>Дети:</b> 
-${childrenList}
+
+<b>Дети:</b> ${childrenList}
+
 <b>Аллергии/ограничения:</b> ${formData.allergies || 'Не указано'}
 
 <b>Время отправки:</b> ${new Date().toLocaleString('ru-RU')}
