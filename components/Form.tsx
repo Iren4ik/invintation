@@ -99,11 +99,12 @@ export default function Form() {
       onSubmit={handleSubmit(onSubmit)}
       className="flex w-full flex-col gap-6"
     >
-      <div className="flex gap-2 lg:gap-4 bg-beige rounded-xl py-3 lg:py-4 px-4 mb-[10px] lg:mb-[20px]">
+      <div className="flex gap-3 lg:gap-4 bg-beige rounded-xl py-3 lg:py-4 px-4 mb-[10px] lg:mb-[20px]">
         <div className="lg:text-[24px]">☝️</div>
-        <span className="text-left text-[11px] lg:text-[17px] leading-[1.4]">
+        <span className="text-left text-[12px] lg:text-[17px] leading-[1.4]">
           Информация из этой формы отправляется в&nbsp;Телеграм-бот. 
-          Пожалуйста, включите VPN перед отправкой данных, либо пришлите указанную информацию 
+          Пожалуйста, <b>включите VPN </b> 
+          перед отправкой данных, либо пришлите указанную информацию 
           нам в&nbsp;личные сообщения.
         </span>
       </div>
